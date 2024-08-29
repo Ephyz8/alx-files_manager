@@ -12,8 +12,6 @@ You will be guided step by step for building it, but you have some freedoms of i
 
 Of course, this kind of service already exists in the real life - it’s a learning purpose to assemble each piece and build a full product.
 
-Enjoy!
-
 Resources
 Read or watch:
 
@@ -28,7 +26,6 @@ Image thumbnail
 Mime-Types
 Redis
 Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 how to create an API with Express
 how to authenticate a user
