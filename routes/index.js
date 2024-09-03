@@ -12,7 +12,7 @@ router.get('/disconnect', AuthController.getDisconnect);
 router.get('/users/me', UsersController.getMe);
 router.get('/files/:id', FilesController.getShow);
 router.get('/files/:id/data', FilesController.getFile);
-router.get('/files', FilesController.getIndex)
+router.get('/files', FilesController.getIndex);
 router.get('/stats', AppController.getStats);
 router.post('/users', UsersController.postNew);
 router.post('/files', FilesController.postUpload);
