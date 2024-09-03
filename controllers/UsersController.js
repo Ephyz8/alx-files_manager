@@ -1,8 +1,8 @@
 import sha1 from 'sha1';
-import dbClient from '../utils/db';
-import redisClient from '../utils/redis';
 import { ObjectId } from 'mongodb';
 import Queue from 'bull';
+import dbClient from '../utils/db';
+import redisClient from '../utils/redis';
 
 class UsersController {
   // eslint-disable-next-line consistent-return
@@ -31,15 +31,13 @@ class UsersController {
     const token = req.header('X-Token');
     const id = await redisClient.get(`auth_${token}`);
     if (id) {
-      const user = await dbClient.db.collection('users').findOne({ _id: ObjectId(id) });
+      const user = await dbClient.db.collection('users').findOne({ n_id: ObjectId(id) });
       if (user) {
-        return res.status(200).json({ id: user._id, email: user.email });
-      } else {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(200).json({ id: user.n_id, email: user.email });
       }
-    } else {
       return res.status(401).json({ error: 'Unauthorized' });
     }
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 }
 
